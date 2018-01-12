@@ -1,0 +1,69 @@
+{
+  "name": "i18n-pipe",
+  "version": "0.0.1",
+  "description": "i18n for pipe separated translation strings",
+  "author": "Matteo Dellea <matteo.dellea@mikamai.com>",
+  "license": "MIT",
+  "main": "dist/i18n-pipe.cjs.js",
+  "module": "dist/i18n-pipe.esm.js",
+  "browser": "dist/i18n-pipe.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "flow": "flow focus-check",
+    "lint": "npm run lint:js",
+    "lint:eslint": "eslint --ignore-path .eslintignore",
+    "lint:js": "npm run lint:eslint -- . ",
+    "pretest": "npm run test:clean && npm run lint && flow status",
+    "test:clean": "rimraf ./coverage",
+    "test": "NODE_ENV=test jest --coverage",
+    "test:watch": "NODE_ENV=test jest --watchAll",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "open-coverage": "open ./coverage/lcov-report/index.html",
+    "preversion": "npm test",
+    "version": "npm run build",
+    "prepublishOnly": "npm version patch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jest-cli": "^22.0.6",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "testRegex": "tests/.*\\.test\\.js$"
+  }
+}
