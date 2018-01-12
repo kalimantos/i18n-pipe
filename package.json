@@ -1,6 +1,6 @@
 {
   "name": "i18n-pipe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "i18n for pipe separated translation strings",
   "author": "Matteo Dellea <matteo.dellea@mikamai.com>",
   "license": "MIT",
