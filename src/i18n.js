@@ -3,7 +3,7 @@
 let lang: string = 'en';
 const language = (str?: string = lang): string => (lang = str);
 
-const isPipedString = (str: string): boolean => (str.match(/\|/g) || []).length > 0;
+const isPipedString = (str: string): boolean => (str.match(/\|[a-zA-Z]{2}\|/) || []).length > 0;
 
 function getTranslationHash(str: ?string): ?string {
   if (!str || !isPipedString(str)) return str;

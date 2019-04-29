@@ -26,6 +26,10 @@ describe('i18n', () => {
       expect(i18n.t('some string!')).toBe('some string!');
     });
 
+    it('should return string if is not a piped string but contains some pipes', () => {
+      expect(i18n.t('some | string | !')).toBe('some | string | !');
+    });
+
     it('should return empty string if no translation is found for current language', () => {
       i18n.language('en');
       expect(i18n.t('|es|hola!|it|ciao!')).toBe('');
