@@ -3,7 +3,7 @@ This is a translation library for pipe separated translation strings such as "|e
 
 ## How to install
 ```bash
-npm i --save i18n-pipe
+npm i i18n-pipe
 ```
 
 ## How to import
