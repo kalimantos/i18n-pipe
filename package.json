@@ -5,8 +5,8 @@
   "author": "Matteo Dellea <matteo.dellea@artshell.eu>",
   "license": "MIT",
   "type": "module",
-  "module": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "module": "./build/i18n.js",
+  "types": "./build/i18n.d.ts",
   "engines": {
     "node": "^22.0.0",
     "npm": "^10.5.1"
