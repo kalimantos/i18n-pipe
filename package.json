@@ -5,20 +5,29 @@
   "author": "Matteo Dellea <matteo.dellea@artshell.eu>",
   "license": "MIT",
   "type": "module",
-  "main": "./build/main/i18n.js",
-  "types": "./build/main/i18n.d.ts",
-  "module": "./build/module/i18n.js",
-  "engines": {
-    "node": "^20.0.0",
-    "npm": "^10.5.1"
+  "main": "./build/cjs/i18n.js",
+  "types": "./build/cjs/i18n.d.ts",
+  "module": "./build/mjs/i18n.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./build/mjs/index.d.ts",
+        "default": "./build/mjs/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/index.d.ts",
+        "default": "./build/cjs/index.js"
+      },
+      "default": "./build/cjs/index.js"
+    }
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:main && npm run build:module",
-    "build:main": "tsc -p tsconfig.build-main.json",
-    "build:module": "tsc -p tsconfig.build-module.json",
+    "build": "npm run clean && npm run build:cjs && npm run build:mjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
+    "build:mjs": "tsc -p tsconfig.mjs.json && echo '{\"type\":\"module\"}' > build/mjs/package.json",
     "clean": "rimraf build coverage",
     "cz": "cz",
     "lint:check": "biome ci .",
