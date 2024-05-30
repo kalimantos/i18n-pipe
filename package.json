@@ -10,15 +10,10 @@
   "module": "./build/mjs/i18n.js",
   "exports": {
     ".": {
-      "import": {
-        "types": "./build/mjs/index.d.ts",
-        "default": "./build/mjs/index.js"
-      },
-      "require": {
-        "types": "./build/cjs/index.d.ts",
-        "default": "./build/cjs/index.js"
-      },
-      "default": "./build/cjs/index.js"
+      "types": "./build/mjs/i18n.d.ts",
+      "require": "./build/cjs/i18n.js",
+      "import": "./build/mjs/i18n.js",
+      "default": "./build/cjs/i18n.js"
     }
   },
   "publishConfig": {
